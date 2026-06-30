@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navbar – CENFOTEC Egresados</title>
+  <link rel="stylesheet" href="/Proyecto-Progra-Web/pages/navbar/css/navbar.css" />
+</head>
+<body>
+
+
+  <!-- Overlay (visible solo en móvil cuando el menú está abierto) -->
+  <div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+
+  <!-- ===== SIDEBAR ===== -->
+  <nav class="sidebar" id="sidebar" role="navigation" aria-label="Menú principal" data-role="registro">
+
+    <!-- ── Encabezado ── -->
+    <header class="sidebar__header">
+      <div class="sidebar__logo">
+        <div class="sidebar__logo-icon" aria-hidden="true">C</div>
+        <div class="sidebar__logo-text">
+          <span class="sidebar__logo-name">CENFOTEC</span>
+          <span class="sidebar__logo-sub">Egresados</span>
+        </div>
+      </div>
+      <button
+        class="sidebar__close-btn"
+        id="sidebarCloseBtn"
+        aria-label="Cerrar menú"
+        type="button"
+      >
+        <span class="icon-close" aria-hidden="true">✕</span>
+      </button>
+    </header>
+
+    <!-- ── Información del usuario ── -->
+    <div class="sidebar__user">
+      <div class="sidebar__user-avatar" aria-hidden="true">
+        <span class="sidebar__user-initials">JD</span>
+      </div>
+      <div class="sidebar__user-info">
+        <p class="sidebar__user-name">Juan Díaz</p>
+        <p class="sidebar__user-role">Registro</p>
+      </div>
+    </div>
+
+    <!-- ── Navegación principal ── -->
+    <div class="sidebar__scroll">
+      <ul class="sidebar__nav" role="list">
+
+        <!-- ── Inicio (todos los roles) ── -->
+        <li class="sidebar__item" data-roles="registro bienestar egresado">
+          <a href="../pages/inicio.html" class="sidebar__link sidebar__link--active" aria-current="page">
+            <span class="sidebar__link-icon" aria-hidden="true">⌂</span>
+            <span class="sidebar__link-label">Inicio</span>
+          </a>
+        </li>
+
+        <!-- ════ SECCIÓN: REGISTRO ════ -->
+        <li class="sidebar__section-header" data-roles="registro">
+          <span class="sidebar__section-label">Académico</span>
+        </li>
+
+        <li class="sidebar__item" data-roles="registro bienestar">
+          <a href="../pages/egresados.html" class="sidebar__link">
+            <span class="sidebar__link-icon" aria-hidden="true">👥</span>
+            <span class="sidebar__link-label">Egresados</span>
+          </a>
+        </li>
+
+        <li class="sidebar__item" data-roles="registro">
+          <button class="sidebar__link sidebar__link--expandable" aria-expanded="false" aria-controls="submenu-egresados" type="button">
+            <span class="sidebar__link-icon" aria-hidden="true">📋</span>
+            <span class="sidebar__link-label">Gestión de Egresados</span>
+            <span class="sidebar__link-arrow" aria-hidden="true">›</span>
+          </button>
+          <ul class="sidebar__submenu" id="submenu-egresados" role="list">
+            <li>
+              <a href="../pages/egresado-registro.html" class="sidebar__sublink">Registrar manualmente</a>
+            </li>
+            <li>
+              <a href="../pages/egresado-importar.html" class="sidebar__sublink">Importar CSV</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="sidebar__item" data-roles="registro">
+          <button class="sidebar__link sidebar__link--expandable" aria-expanded="false" aria-controls="submenu-titulos" type="button">
+            <span class="sidebar__link-icon" aria-hidden="true">🎓</span>
+            <span class="sidebar__link-label">Títulos Académicos</span>
+            <span class="sidebar__link-arrow" aria-hidden="true">›</span>
+          </button>
+          <ul class="sidebar__submenu" id="submenu-titulos" role="list">
+            <li>
+              <a href="../pages/titulos.html" class="sidebar__sublink">Listado de títulos</a>
+            </li>
+            <li>
+              <a href="../pages/titulo-form.html" class="sidebar__sublink">Registrar título</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="sidebar__item" data-roles="registro">
+          <a href="../pages/carreras.html" class="sidebar__link">
+            <span class="sidebar__link-icon" aria-hidden="true">📚</span>
+            <span class="sidebar__link-label">Carreras</span>
+          </a>
+        </li>
+
+        <li class="sidebar__item" data-roles="registro">
+          <a href="../pages/escuelas.html" class="sidebar__link">
+            <span class="sidebar__link-icon" aria-hidden="true">🏫</span>
+            <span class="sidebar__link-label">Escuelas</span>
+          </a>
+        </li>
+
+        <!-- ════ SECCIÓN: BIENESTAR ESTUDIANTIL ════ -->
+        <li class="sidebar__section-header" data-roles="bienestar">
+          <span class="sidebar__section-label">Institucional</span>
+        </li>
+
+        <li class="sidebar__item" data-roles="bienestar">
+          <a href="../pages/actividades.html" class="sidebar__link">
+            <span class="sidebar__link-icon" aria-hidden="true">📅</span>
+            <span class="sidebar__link-label">Actividades</span>
+          </a>
+        </li>
+
+        <li class="sidebar__item" data-roles="bienestar">
+          <a href="../pages/comunidades.html" class="sidebar__link">
+            <span class="sidebar__link-icon" aria-hidden="true">🤝</span>
+            <span class="sidebar__link-label">Comunidades</span>
+          </a>
+        </li>
+
+        <li class="sidebar__item" data-roles="bienestar">
+          <a href="../pages/mentorias.html" class="sidebar__link">
+            <span class="sidebar__link-icon" aria-hidden="true">💡</span>
+            <span class="sidebar__link-label">Mentorías</span>
+          </a>
+        </li>
+
+        <li class="sidebar__item" data-roles="bienestar">
+          <a href="../pages/empleabilidad.html" class="sidebar__link">
+            <span class="sidebar__link-icon" aria-hidden="true">💼</span>
+            <span class="sidebar__link-label">Oportunidades Laborales</span>
+          </a>
+        </li>
+
+        <li class="sidebar__item" data-roles="bienestar">
+          <a href="../pages/comunicados.html" class="sidebar__link">
+            <span class="sidebar__link-icon" aria-hidden="true">📢</span>
+            <span class="sidebar__link-label">Comunicados</span>
+          </a>
+        </li>
+
+        <!-- ════ SECCIÓN: EGRESADO ════ -->
+        <li class="sidebar__section-header" data-roles="egresado">
+          <span class="sidebar__section-label">Mi espacio</span>
+        </li>
+
+        <li class="sidebar__item" data-roles="egresado">
+          <a href="../pages/perfil.html" class="sidebar__link">
+            <span class="sidebar__link-icon" aria-hidden="true">👤</span>
+            <span class="sidebar__link-label">Mi Perfil</span>
+          </a>
+        </li>
+
+        <li class="sidebar__item" data-roles="egresado">
+          <a href="../pages/perfil-editar.html" class="sidebar__link">
+            <span class="sidebar__link-icon" aria-hidden="true">✏️</span>
+            <span class="sidebar__link-label">Editar Perfil</span>
+          </a>
+        </li>
+
+        <!-- ════ SECCIÓN COMPARTIDA: EGRESADO + BIENESTAR ════ -->
+        <li class="sidebar__section-header" data-roles="egresado bienestar">
+          <span class="sidebar__section-label">Comunidad</span>
+        </li>
+
+        <li class="sidebar__item" data-roles="egresado">
+          <a href="../pages/actividades.html" class="sidebar__link">
+            <span class="sidebar__link-icon" aria-hidden="true">📅</span>
+            <span class="sidebar__link-label">Actividades</span>
+          </a>
+        </li>
+
+        <li class="sidebar__item" data-roles="egresado">
+          <a href="../pages/comunidades.html" class="sidebar__link">
+            <span class="sidebar__link-icon" aria-hidden="true">🤝</span>
+            <span class="sidebar__link-label">Comunidades</span>
+          </a>
+        </li>
+
+        <li class="sidebar__item" data-roles="egresado">
+          <a href="../pages/mentor-registro.html" class="sidebar__link">
+            <span class="sidebar__link-icon" aria-hidden="true">⭐</span>
+            <span class="sidebar__link-label">Ser Mentor</span>
+          </a>
+        </li>
+
+        <li class="sidebar__item" data-roles="egresado">
+          <a href="../pages/mentoria-solicitud.html" class="sidebar__link">
+            <span class="sidebar__link-icon" aria-hidden="true">💡</span>
+            <span class="sidebar__link-label">Solicitar Mentoría</span>
+          </a>
+        </li>
+
+        <li class="sidebar__item" data-roles="egresado">
+          <a href="../pages/empleabilidad.html" class="sidebar__link">
+            <span class="sidebar__link-icon" aria-hidden="true">💼</span>
+            <span class="sidebar__link-label">Oportunidades Laborales</span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+    <!-- /sidebar__scroll -->
+
+    <!-- ── Pie del sidebar ── -->
+    <footer class="sidebar__footer">
+      <a href="../pages/index.html" class="sidebar__footer-link" aria-label="Ir al sitio público">
+        <span class="sidebar__link-icon" aria-hidden="true">🌐</span>
+        <span class="sidebar__link-label">Sitio público</span>
+      </a>
+      <button class="sidebar__footer-link sidebar__logout-btn" type="button">
+        <span class="sidebar__link-icon" aria-hidden="true">↩</span>
+        <span class="sidebar__link-label">Cerrar sesión</span>
+      </button>
+    </footer>
+
+  </nav>
+  <!-- /sidebar -->
+
+  <!-- ===== BOTÓN HAMBURGUESA (para páginas host) ===== -->
+  <!--
+    Incluir este botón en el <header> de cada página.
+    Ejemplo mínimo de layout en página host:
+
+    <body class="has-sidebar">
+      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Abrir menú" type="button">
+        <span></span><span></span><span></span>
+      </button>
+      <main class="page-main"> … </main>
+    </body>
+  -->
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Abrir menú" type="button">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- ===== DEMO: área de contenido (solo para esta vista de previsualización) ===== -->
+  <main class="demo-main" aria-label="Contenido de ejemplo">
+    <section class="demo-content">
+      <h1 class="demo-title">Vista previa del Navbar</h1>
+      <p class="demo-description">
+        Este archivo es el componente reutilizable de navegación.<br>
+        Cambia el atributo <code>data-role</code> del <code>&lt;nav&gt;</code>
+        para ver los distintos menús de cada rol.
+      </p>
+      <div class="demo-role-switcher" role="group" aria-label="Cambiar rol de demostración">
+        <p class="demo-role-label">Previsualizar como:</p>
+        <button class="demo-role-btn demo-role-btn--active" data-role="registro" type="button">Registro</button>
+        <button class="demo-role-btn" data-role="bienestar" type="button">Bienestar Estudiantil</button>
+        <button class="demo-role-btn" data-role="egresado" type="button">Egresado</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    /* ── Referencias ── */
+    const sidebar       = document.getElementById('sidebar');
+    const overlay       = document.getElementById('sidebarOverlay');
+    const toggleBtn     = document.getElementById('sidebarToggle');
+    const closeBtn      = document.getElementById('sidebarCloseBtn');
+    const expandables   = sidebar.querySelectorAll('.sidebar__link--expandable');
+    const roleBtns      = document.querySelectorAll('.demo-role-btn');
+
+    /* ── Abrir / cerrar sidebar (móvil) ── */
+    function openSidebar() {
+      sidebar.classList.add('sidebar--open');
+      overlay.classList.add('sidebar-overlay--visible');
+      overlay.setAttribute('aria-hidden', 'false');
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      closeBtn.focus();
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove('sidebar--open');
+      overlay.classList.remove('sidebar-overlay--visible');
+      overlay.setAttribute('aria-hidden', 'true');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    toggleBtn.addEventListener('click', () =>
+      sidebar.classList.contains('sidebar--open') ? closeSidebar() : openSidebar()
+    );
+    closeBtn.addEventListener('click', closeSidebar);
+    overlay.addEventListener('click', closeSidebar);
+
+    /* ── Submenús colapsables ── */
+    expandables.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        // Colapsar todos los demás
+        expandables.forEach(other => {
+          if (other !== btn) {
+            other.setAttribute('aria-expanded', 'false');
+            other.parentElement
+              .querySelector('.sidebar__submenu')
+              ?.classList.remove('sidebar__submenu--open');
+          }
+        });
+        // Alternar el actual
+        btn.setAttribute('aria-expanded', String(!expanded));
+        btn.parentElement
+          .querySelector('.sidebar__submenu')
+          ?.classList.toggle('sidebar__submenu--open', !expanded);
+      });
+    });
+
+    /* ── Filtrado por rol ── */
+    function applyRole(role) {
+      sidebar.setAttribute('data-role', role);
+
+      // Mostrar/ocultar ítems según data-roles
+      sidebar.querySelectorAll('[data-roles]').forEach(el => {
+        const roles = el.getAttribute('data-roles').split(' ');
+        el.hidden = !roles.includes(role);
+      });
+
+      // Actualizar etiqueta de rol del usuario (demo)
+      const roleLabels = {
+        registro:  'Registro',
+        bienestar: 'Bienestar Estudiantil',
+        egresado:  'Egresado'
+      };
+      const roleEl = sidebar.querySelector('.sidebar__user-role');
+      if (roleEl) roleEl.textContent = roleLabels[role] || role;
+    }
+
+    /* ── Switcher de rol (demo) ── */
+    roleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        roleBtns.forEach(b => b.classList.remove('demo-role-btn--active'));
+        btn.classList.add('demo-role-btn--active');
+        applyRole(btn.dataset.role);
+      });
+    });
+
+    /* ── Inicializar con el rol del data-role inicial ── */
+    applyRole(sidebar.getAttribute('data-role') || 'registro');
+
+    /* ── Cerrar con Escape ── */
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && sidebar.classList.contains('sidebar--open')) {
+        closeSidebar();
+      }
+    });
+  </script>
+
+</body>
+</html>

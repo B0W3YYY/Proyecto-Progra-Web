@@ -1,0 +1,868 @@
+/*
+ * navbar.css
+ * Componente: barra de navegación lateral
+ * Sistema de Gestión de Egresados – Universidad CENFOTEC
+ *
+ * Archivo independiente de styles.css.
+ * Incluir en cada página que utilice navbar.html.
+ *
+ * Índice
+ * ────────────────────────────────────────────────────
+ *  0.  Variables
+ *  1.  Reset del componente
+ *  2.  Overlay (móvil)
+ *  3.  Sidebar – contenedor
+ *  4.  Sidebar – encabezado / logo
+ *  5.  Sidebar – bloque de sesión
+ *  6.  Sidebar – área de scroll y nav
+ *  7.  Sidebar – cabeceras de sección
+ *  8.  Sidebar – enlaces
+ *  9.  Sidebar – submenús
+ * 10.  Sidebar – pie
+ * 11.  Botón hamburguesa
+ * 12.  Layout de página host
+ * 13.  Responsivo
+ * 14.  Demo (eliminar al integrar)
+ * 15.  Accesibilidad
+ * ────────────────────────────────────────────────────
+ */
+
+
+/* ─────────────────────────────────────────────────────
+   0. VARIABLES
+   Colores neutros de referencia.
+   Sobreescribir desde styles.css con la paleta CENFOTEC.
+───────────────────────────────────────────────────── */
+
+:root {
+  /* Dimensiones */
+  --sb-width:          256px;
+  --sb-width-icon:     64px;
+  --sb-header-h:       64px;
+  --sb-footer-h:       52px;
+
+  /* Espaciado */
+  --sb-px:             0.875rem;
+  --sb-item-py:        0.5625rem;
+  --sb-gap:            2px;
+
+  /* Tipografía */
+  --sb-font:           'Segoe UI', system-ui, -apple-system, sans-serif;
+  --sb-fs-xs:          0.6875rem;   /* 11px */
+  --sb-fs-sm:          0.8125rem;   /* 13px */
+  --sb-fs-base:        0.875rem;    /* 14px */
+  --sb-fw-normal:      400;
+  --sb-fw-medium:      500;
+  --sb-fw-semibold:    600;
+
+  /* Colores base — marcadores neutros hasta que styles.css los defina */
+  --sb-bg:             #1a2332;
+  --sb-bg-raised:      #111c2b;
+  --sb-text:           #94a3b8;
+  --sb-text-strong:    #e2e8f0;
+  --sb-text-subtle:    #4d6176;
+  --sb-accent:         #3b82f6;
+  --sb-accent-bg:      rgba(59, 130, 246, 0.12);
+  --sb-hover-bg:       rgba(255, 255, 255, 0.05);
+  --sb-divider:        rgba(255, 255, 255, 0.07);
+  --sb-scrollbar:      rgba(255, 255, 255, 0.12);
+
+  /* Avatar */
+  --sb-avatar-size:    34px;
+
+  /* Efectos */
+  --sb-shadow:         1px 0 0 0 var(--sb-divider);
+  --sb-overlay-bg:     rgba(0, 0, 0, 0.55);
+  --sb-ease:           0.22s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Capas */
+  --sb-z:              200;
+  --sb-overlay-z:      199;
+  --sb-toggle-z:       201;
+
+  /* Radios */
+  --sb-r-sm:           5px;
+  --sb-r-md:           7px;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   1. RESET DEL COMPONENTE
+───────────────────────────────────────────────────── */
+
+.sidebar *,
+.sidebar *::before,
+.sidebar *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar ul  { list-style: none; }
+.sidebar a   { text-decoration: none; color: inherit; }
+
+.sidebar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   2. OVERLAY
+───────────────────────────────────────────────────── */
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--sb-overlay-bg);
+  z-index: var(--sb-overlay-z);
+  opacity: 0;
+  transition: opacity var(--sb-ease);
+}
+
+.sidebar-overlay--visible {
+  display: block;
+  opacity: 1;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   3. SIDEBAR – CONTENEDOR
+───────────────────────────────────────────────────── */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sb-width);
+  height: 100dvh;
+  background: var(--sb-bg);
+  box-shadow: var(--sb-shadow);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--sb-font);
+  font-size: var(--sb-fs-base);
+  color: var(--sb-text);
+  z-index: var(--sb-z);
+  overflow: hidden;
+  transition: width var(--sb-ease), transform var(--sb-ease);
+}
+
+
+/* ─────────────────────────────────────────────────────
+   4. ENCABEZADO / LOGO
+───────────────────────────────────────────────────── */
+
+.sidebar__header {
+  flex-shrink: 0;
+  height: var(--sb-header-h);
+  background: var(--sb-bg-raised);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--sb-px);
+  border-bottom: 1px solid var(--sb-divider);
+}
+
+.sidebar__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  min-width: 0;
+}
+
+/*
+  Placeholder de logo: cuadrado con la inicial.
+  Al integrar el logo SVG real, eliminar .sidebar__logo-placeholder
+  y usar: <img src="../img/logo.svg" alt="CENFOTEC" class="sidebar__logo-img" />
+*/
+.sidebar__logo-placeholder {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--sb-r-sm);
+  background: var(--sb-accent);
+  display: grid;
+  place-items: center;
+  font-size: 0.9375rem;
+  font-weight: var(--sb-fw-semibold);
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.sidebar__logo-img {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.sidebar__logo-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.25;
+}
+
+.sidebar__logo-name {
+  font-size: var(--sb-fs-base);
+  font-weight: var(--sb-fw-semibold);
+  color: var(--sb-text-strong);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.01em;
+}
+
+.sidebar__logo-sub {
+  font-size: var(--sb-fs-xs);
+  color: var(--sb-text-subtle);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Botón cerrar — solo visible en móvil */
+.sidebar__close-btn {
+  flex-shrink: 0;
+  display: none;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--sb-r-sm);
+  align-items: center;
+  justify-content: center;
+  color: var(--sb-text);
+  transition: background var(--sb-ease), color var(--sb-ease);
+}
+
+.sidebar__close-btn:hover,
+.sidebar__close-btn:focus-visible {
+  background: var(--sb-hover-bg);
+  color: var(--sb-text-strong);
+  outline: none;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   5. BLOQUE DE SESIÓN
+   Estado neutro (sin usuario autenticado).
+───────────────────────────────────────────────────── */
+
+.sidebar__session {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.75rem var(--sb-px);
+  border-bottom: 1px solid var(--sb-divider);
+  min-width: 0;
+}
+
+.sidebar__session-avatar {
+  flex-shrink: 0;
+  width: var(--sb-avatar-size);
+  height: var(--sb-avatar-size);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--sb-divider);
+  display: grid;
+  place-items: center;
+  color: var(--sb-text-subtle);
+}
+
+.sidebar__session-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.3;
+}
+
+.sidebar__session-name {
+  font-size: var(--sb-fs-sm);
+  font-weight: var(--sb-fw-medium);
+  color: var(--sb-text-strong);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar__session-hint {
+  font-size: var(--sb-fs-xs);
+  color: var(--sb-text-subtle);
+  white-space: nowrap;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   6. ÁREA DE SCROLL Y NAVEGACIÓN
+───────────────────────────────────────────────────── */
+
+.sidebar__scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0.375rem 0;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sb-scrollbar) transparent;
+}
+
+.sidebar__scroll::-webkit-scrollbar       { width: 3px; }
+.sidebar__scroll::-webkit-scrollbar-track { background: transparent; }
+.sidebar__scroll::-webkit-scrollbar-thumb {
+  background: var(--sb-scrollbar);
+  border-radius: 2px;
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sb-gap);
+  padding: 0 var(--sb-px);
+}
+
+/* Ítems ocultos por rol */
+.sidebar__item[hidden],
+.sidebar__section-header[hidden] {
+  display: none;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   7. CABECERAS DE SECCIÓN
+───────────────────────────────────────────────────── */
+
+.sidebar__section-header {
+  padding: 1.125rem 0.5rem 0.3rem;
+}
+
+.sidebar__section-label {
+  display: block;
+  font-size: var(--sb-fs-xs);
+  font-weight: var(--sb-fw-semibold);
+  color: var(--sb-text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   8. ENLACES DE NAVEGACIÓN
+───────────────────────────────────────────────────── */
+
+.sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  width: 100%;
+  padding: var(--sb-item-py) 0.625rem;
+  border-radius: var(--sb-r-md);
+  color: var(--sb-text);
+  font-size: var(--sb-fs-sm);
+  font-weight: var(--sb-fw-normal);
+  line-height: 1.4;
+  position: relative;
+  transition: background var(--sb-ease), color var(--sb-ease);
+  text-align: left;
+}
+
+.sidebar__link:hover,
+.sidebar__link:focus-visible {
+  background: var(--sb-hover-bg);
+  color: var(--sb-text-strong);
+  outline: none;
+}
+
+/* Estado activo */
+.sidebar__link--active {
+  background: var(--sb-accent-bg);
+  color: var(--sb-text-strong);
+  font-weight: var(--sb-fw-medium);
+}
+
+.sidebar__link--active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 2px;
+  border-radius: 0 2px 2px 0;
+  background: var(--sb-accent);
+}
+
+/* Icono SVG */
+.sidebar__link-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  color: inherit;
+  opacity: 0.7;
+}
+
+.sidebar__link--active .sidebar__link-icon,
+.sidebar__link:hover   .sidebar__link-icon {
+  opacity: 1;
+}
+
+/* Texto del enlace */
+.sidebar__link-label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Flecha de expandible */
+.sidebar__link-arrow {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  color: var(--sb-text-subtle);
+  transition: transform var(--sb-ease);
+}
+
+.sidebar__link--expandable[aria-expanded="true"] .sidebar__link-arrow {
+  transform: rotate(90deg);
+}
+
+
+/* ─────────────────────────────────────────────────────
+   9. SUBMENÚS COLAPSABLES
+───────────────────────────────────────────────────── */
+
+.sidebar__submenu {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows var(--sb-ease);
+  padding-left: 0.625rem;
+}
+
+.sidebar__submenu > * {
+  min-height: 0;
+}
+
+.sidebar__submenu--open {
+  grid-template-rows: 1fr;
+}
+
+.sidebar__submenu ul {
+  padding: 0.125rem 0 0.25rem;
+}
+
+.sidebar__sublink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4375rem 0.625rem 0.4375rem 1.625rem;
+  border-radius: var(--sb-r-sm);
+  font-size: var(--sb-fs-xs);
+  color: var(--sb-text-subtle);
+  font-weight: var(--sb-fw-normal);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background var(--sb-ease), color var(--sb-ease);
+  position: relative;
+}
+
+/* Punto decorativo */
+.sidebar__sublink::before {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--sb-text-subtle);
+  opacity: 0.5;
+}
+
+.sidebar__sublink:hover,
+.sidebar__sublink:focus-visible {
+  background: var(--sb-hover-bg);
+  color: var(--sb-text-strong);
+  outline: none;
+}
+
+.sidebar__sublink:hover::before,
+.sidebar__sublink:focus-visible::before {
+  background: var(--sb-accent);
+  opacity: 1;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   10. PIE DEL SIDEBAR
+───────────────────────────────────────────────────── */
+
+.sidebar__footer {
+  flex-shrink: 0;
+  height: var(--sb-footer-h);
+  background: var(--sb-bg-raised);
+  border-top: 1px solid var(--sb-divider);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--sb-px);
+  gap: 0.25rem;
+}
+
+.sidebar__footer-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  padding: 0.4375rem 0.5rem;
+  border-radius: var(--sb-r-sm);
+  font-size: var(--sb-fs-xs);
+  color: var(--sb-text-subtle);
+  font-weight: var(--sb-fw-normal);
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: left;
+  transition: background var(--sb-ease), color var(--sb-ease);
+  cursor: pointer;
+}
+
+.sidebar__footer-link .sidebar__link-icon {
+  opacity: 0.6;
+}
+
+.sidebar__footer-link:hover,
+.sidebar__footer-link:focus-visible {
+  background: var(--sb-hover-bg);
+  color: var(--sb-text-strong);
+  outline: none;
+}
+
+.sidebar__footer-link:hover .sidebar__link-icon,
+.sidebar__footer-link:focus-visible .sidebar__link-icon {
+  opacity: 1;
+}
+
+.sidebar__logout-btn {
+  flex: 0;
+  flex-shrink: 0;
+  border-left: 1px solid var(--sb-divider);
+  padding-left: 0.625rem;
+  margin-left: 0.25rem;
+}
+
+.sidebar__logout-btn:hover,
+.sidebar__logout-btn:focus-visible {
+  color: #f87171;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   11. BOTÓN HAMBURGUESA (solo móvil)
+───────────────────────────────────────────────────── */
+
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 0.875rem;
+  left: 0.875rem;
+  z-index: var(--sb-toggle-z);
+  width: 40px;
+  height: 40px;
+  background: var(--sb-bg-raised);
+  border: 1px solid var(--sb-divider);
+  border-radius: var(--sb-r-md);
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0;
+  transition: background var(--sb-ease), border-color var(--sb-ease);
+}
+
+.sidebar-toggle span {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: var(--sb-text-strong);
+  border-radius: 2px;
+  transition: transform var(--sb-ease), opacity var(--sb-ease);
+}
+
+.sidebar-toggle:hover {
+  background: var(--sb-hover-bg);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.sidebar-toggle:focus-visible {
+  outline: 2px solid var(--sb-accent);
+  outline-offset: 2px;
+}
+
+/* Animación → X */
+.sidebar--open ~ .sidebar-toggle span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+.sidebar--open ~ .sidebar-toggle span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.sidebar--open ~ .sidebar-toggle span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+
+
+/* ─────────────────────────────────────────────────────
+   12. LAYOUT DE PÁGINA HOST
+   Agregar class="has-sidebar" al <body>.
+───────────────────────────────────────────────────── */
+
+.has-sidebar {
+  display: flex;
+  min-height: 100dvh;
+}
+
+.page-main {
+  flex: 1;
+  min-width: 0;
+  margin-left: var(--sb-width);
+  transition: margin-left var(--sb-ease);
+}
+
+
+/* ─────────────────────────────────────────────────────
+   13. RESPONSIVO
+───────────────────────────────────────────────────── */
+
+/* Tableta (769px – 1024px): sidebar colapsado a íconos */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .sidebar {
+    width: var(--sb-width-icon);
+  }
+
+  .sidebar__logo-text,
+  .sidebar__session-info,
+  .sidebar__link-label,
+  .sidebar__link-arrow,
+  .sidebar__section-label,
+  .sidebar__submenu,
+  .sidebar__footer .sidebar__link-label {
+    display: none;
+  }
+
+  .sidebar__nav {
+    padding: 0 0.5rem;
+  }
+
+  .sidebar__session {
+    justify-content: center;
+    padding: 0.75rem 0;
+  }
+
+  .sidebar__link {
+    justify-content: center;
+    padding: 0.625rem;
+  }
+
+  .sidebar__link-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+  }
+
+  .sidebar__link--active::before {
+    left: 0;
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px 2px 0 0;
+  }
+
+  .sidebar__footer {
+    flex-direction: column;
+    height: auto;
+    padding: 0.5rem;
+    justify-content: center;
+  }
+
+  .sidebar__footer-link {
+    justify-content: center;
+    flex: 0;
+  }
+
+  .sidebar__logout-btn {
+    border-left: none;
+    border-top: 1px solid var(--sb-divider);
+    padding-left: 0.5rem;
+    margin-left: 0;
+    padding-top: 0.5rem;
+  }
+
+  .has-sidebar .page-main {
+    margin-left: var(--sb-width-icon);
+  }
+}
+
+/* Móvil (≤ 768px): sidebar fuera de pantalla, toggle visible */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: var(--sb-width);
+  }
+
+  .sidebar--open {
+    transform: translateX(0);
+  }
+
+  .sidebar__close-btn {
+    display: flex;
+  }
+
+  .sidebar-toggle {
+    display: flex;
+  }
+
+  .has-sidebar .page-main {
+    margin-left: 0;
+  }
+}
+
+
+/* ─────────────────────────────────────────────────────
+   14. DEMO — eliminar al integrar
+───────────────────────────────────────────────────── */
+
+.demo-preview {
+  margin-left: var(--sb-width);
+  min-height: 100dvh;
+  display: flex;
+  align-items: flex-start;
+  padding: 2.5rem 2rem;
+  background: #f1f5f9;
+  transition: margin-left var(--sb-ease);
+}
+
+.demo-card {
+  max-width: 440px;
+  width: 100%;
+}
+
+.demo-card__title {
+  font-family: var(--sb-font);
+  font-size: 1.125rem;
+  font-weight: var(--sb-fw-semibold);
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.demo-card__desc {
+  font-family: var(--sb-font);
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+}
+
+.demo-card__desc code {
+  font-family: 'Consolas', 'Menlo', 'Monaco', monospace;
+  font-size: 0.8125rem;
+  background: #e2e8f0;
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  color: #334155;
+}
+
+.demo-card__roles-label {
+  font-family: var(--sb-font);
+  font-size: 0.75rem;
+  font-weight: var(--sb-fw-semibold);
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.625rem;
+}
+
+.demo-card__roles-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.375rem;
+}
+
+.demo-role-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4375rem 1rem;
+  border-radius: var(--sb-r-sm);
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  font-family: var(--sb-font);
+  font-size: 0.8125rem;
+  font-weight: var(--sb-fw-medium);
+  color: #475569;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.demo-role-btn:hover,
+.demo-role-btn:focus-visible {
+  border-color: var(--sb-accent);
+  color: var(--sb-accent);
+  outline: none;
+}
+
+/* Estado activo: borde y texto de acento, sin perder legibilidad */
+.demo-role-btn--active {
+  border-color: var(--sb-accent);
+  background: var(--sb-accent-bg);
+  color: var(--sb-accent);
+  font-weight: var(--sb-fw-semibold);
+}
+
+/* El hover sobre el activo mantiene el mismo estilo */
+.demo-role-btn--active:hover,
+.demo-role-btn--active:focus-visible {
+  background: rgba(59, 130, 246, 0.18);
+  color: var(--sb-accent);
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .demo-preview { margin-left: var(--sb-width-icon); }
+}
+
+@media (max-width: 768px) {
+  .demo-preview {
+    margin-left: 0;
+    padding: 4.5rem 1.25rem 2rem;
+  }
+}
+
+
+/* ─────────────────────────────────────────────────────
+   15. ACCESIBILIDAD
+───────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .sidebar__link,
+  .sidebar__sublink,
+  .sidebar__submenu,
+  .sidebar__link-arrow,
+  .sidebar-overlay,
+  .sidebar-toggle span,
+  .page-main,
+  .demo-preview {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+.sidebar__link:focus-visible,
+.sidebar__sublink:focus-visible,
+.sidebar__footer-link:focus-visible,
+.sidebar__close-btn:focus-visible {
+  outline: 2px solid var(--sb-accent);
+  outline-offset: 2px;
+}
