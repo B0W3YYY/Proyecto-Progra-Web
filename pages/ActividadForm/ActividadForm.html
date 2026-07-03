@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Actividad | Universidad CENFOTEC</title>
+
+    <link rel="stylesheet" href="../../CSS/styles.css">
+</head>
+<body>
+
+    <!-- ==========================================================
+                            ENCABEZADO
+    =========================================================== -->
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../../IMG/imagen-logo.png" alt="Logo de Universidad CENFOTEC">
+                <div>
+                    <h1>Sistema de Gestión de Egresados</h1>
+                    <p>Universidad CENFOTEC</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================
+                        MENÚ DE NAVEGACIÓN
+    =========================================================== -->
+
+    <nav>
+        <ul>
+            <li><a href="../PagPublicaInformativa/PagPublicaInformativa.html">Inicio</a></li>
+            <li><a href="../PagRegistro/PagRegistro.html">Registro</a></li>
+            <li><a href="../Perfil/Perfil.html">Perfil</a></li>
+            <li><a href="../Escuelas/Escuelas.html">Escuelas</a></li>
+            <li><a href="../Actividades/Actividades.html">Actividades</a></li>
+        </ul>
+    </nav>
+
+    <!-- ==========================================================
+                        CONTENIDO PRINCIPAL
+    =========================================================== -->
+
+    <main class="container">
+        <section>
+            <h2>Registro de Actividad</h2>
+            <p>
+                Complete la siguiente información para registrar una nueva
+                actividad para los egresados.
+            </p>
+
+        </section>
+
+        <!-- ==========================================================
+                            FORMULARIO
+        =========================================================== -->
+
+        <form>
+            <div class="grid">
+                <div class="form-group">
+                    <label for="nombre">
+                        Nombre de la actividad
+                    </label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Ingrese el nombre de la actividad">
+                </div>
+                <div class="form-group">
+                    <label for="fecha">
+                        Fecha
+                    </label>
+                    <input
+                        type="date"
+                        id="fecha"
+                        name="fecha">
+                </div>
+                <div class="form-group">
+                    <label for="hora">
+                        Hora
+                    </label>
+                    <input
+                        type="time"
+                        id="hora"
+                        name="hora">
+                </div>
+                <div class="form-group">
+                    <label for="lugar">
+                        Lugar
+                    </label>
+                    <input
+                        type="text"
+                        id="lugar"
+                        name="lugar"
+                        placeholder="Ingrese el lugar">
+                </div>
+                <div class="form-group">
+                    <label for="modalidad">
+                        Modalidad
+                    </label>
+                    <select id="modalidad" name="modalidad">
+                        <option>Seleccione una opción</option>
+                        <option>Presencial</option>
+                        <option>Virtual</option>
+                        <option>Híbrida</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cupo">
+                        Cupo disponible
+                    </label>
+                    <input
+                        type="number"
+                        id="cupo"
+                        name="cupo"
+                        placeholder="0">
+                </div>
+                <div class="form-group">
+                    <label for="estado">
+                        Estado
+                    </label>
+                    <select id="estado" name="estado">
+                        <option>Seleccione una opción</option>
+                        <option>Disponible</option>
+                        <option>Próximamente</option>
+                        <option>Finalizada</option>
+                        <option>Cancelada</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- ==========================================================
+                            DESCRIPCIÓN
+            =========================================================== -->
+
+            <div class="form-group">
+                <label for="descripcion">
+                    Descripción
+                </label>
+                <textarea
+                    id="descripcion"
+                    name="descripcion"
+                    placeholder="Ingrese una descripción de la actividad">
+                </textarea>
+            </div>
+
+            <!-- ==========================================================
+                            BOTONES
+            =========================================================== -->
+
+            <div class="form-buttons">
+                <button
+                    type="submit"
+                    class="btn">
+                    Guardar
+                </button>
+                <button
+                    type="reset"
+                    class="btn btn-outline">
+                    Limpiar
+                </button>
+                <a
+                    href="../Actividades/Actividades.html"
+                    class="btn btn-outline">
+                    Volver
+                </a>
+            </div>
+        </form>
+    </main>
+
+    <!-- ==========================================================
+                            PIE DE PÁGINA
+    =========================================================== -->
+
+    <footer>
+        <p>Sistema de Gestión de Egresados</p>
+        <p>Universidad CENFOTEC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Mentoría | Universidad CENFOTEC</title>
+
+    <link rel="stylesheet" href="../../CSS/styles.css">
+</head>
+<body>
+
+    <!-- ==========================================================
+                            ENCABEZADO
+    =========================================================== -->
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../../IMG/imagen-logo.png" alt="Logo de Universidad CENFOTEC">
+                <div>
+                    <h1>Sistema de Gestión de Egresados</h1>
+                    <p>Universidad CENFOTEC</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================
+                        MENÚ DE NAVEGACIÓN
+    =========================================================== -->
+
+    <nav>
+        <ul>
+            <li><a href="../PagPublicaInformativa/PagPublicaInformativa.html">Inicio</a></li>
+            <li><a href="../PagRegistro/PagRegistro.html">Registro</a></li>
+            <li><a href="../Perfil/Perfil.html">Perfil</a></li>
+            <li><a href="../Actividades/Actividades.html">Actividades</a></li>
+            <li><a href="../Mentorias/Mentorias.html">Mentorías</a></li>
+        </ul>
+    </nav>
+
+    <!-- ==========================================================
+                        CONTENIDO PRINCIPAL
+    =========================================================== -->
+
+    <main class="container">
+        <section>
+            <h2>Solicitud de Mentoría</h2>
+            <p>
+                Complete el siguiente formulario para solicitar una mentoría.
+                La información será utilizada para asignar el mentor más adecuado
+                según el área de interés.
+            </p>
+        </section>
+
+        <!-- ==========================================================
+                            FORMULARIO
+        =========================================================== -->
+
+        <form>
+            <div class="grid">
+                <div class="form-group">
+                    <label for="nombre">
+                        Nombre completo
+                    </label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Ingrese su nombre completo">
+                </div>
+                <div class="form-group">
+                    <label for="correo">
+                        Correo electrónico
+                    </label>
+                    <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        placeholder="correo@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">
+                        Teléfono
+                    </label>
+                    <input
+                        type="tel"
+                        id="telefono"
+                        name="telefono"
+                        placeholder="8888-8888">
+                </div>
+                <div class="form-group">
+                    <label for="area">
+                        Área de interés
+                    </label>
+                    <select
+                        id="area"
+                        name="area">
+                        <option>Seleccione una opción</option>
+                        <option>Desarrollo de Software</option>
+                        <option>Ciberseguridad</option>
+                        <option>Ciencia de Datos</option>
+                        <option>Administración</option>
+                        <option>Emprendimiento</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="modalidad">
+                        Modalidad
+                    </label>
+                    <select
+                        id="modalidad"
+                        name="modalidad">
+                        <option>Seleccione una opción</option>
+                        <option>Presencial</option>
+                        <option>Virtual</option>
+                        <option>Híbrida</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fecha">
+                        Fecha deseada
+                    </label>
+                    <input
+                        type="date"
+                        id="fecha"
+                        name="fecha">
+                </div>
+            </div>
+
+            <!-- ==========================================================
+                            MOTIVO
+            =========================================================== -->
+
+            <section>
+                <h3>Motivo de la solicitud</h3>
+                <div class="form-group">
+                    <label for="motivo">
+                        Describa el motivo
+                    </label>
+                    <textarea
+                        id="motivo"
+                        name="motivo"
+                        placeholder="Explique el motivo de la solicitud de mentoría">
+                    </textarea>
+                </div>
+            </section>
+
+            <!-- ==========================================================
+                            BOTONES
+            =========================================================== -->
+
+            <div class="form-buttons">
+                <button
+                    type="submit"
+                    class="btn">
+                    Enviar solicitud
+                </button>
+                <button
+                    type="reset"
+                    class="btn btn-outline">
+                    Limpiar
+                </button>
+                <a
+                    href="../Mentorias/Mentorias.html"
+                    class="btn btn-outline">
+                    Volver
+                </a>
+            </div>
+        </form>
+    </main>
+
+    <!-- ==========================================================
+                            PIE DE PÁGINA
+    =========================================================== -->
+
+    <footer>
+        <p>Sistema de Gestión de Egresados</p>
+        <p>Universidad CENFOTEC</p>
+    </footer>
+</body>
+</html>

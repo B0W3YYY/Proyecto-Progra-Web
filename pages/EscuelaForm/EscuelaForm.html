@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Escuela | Universidad CENFOTEC</title>
+
+    <link rel="stylesheet" href="../../CSS/styles.css">
+
+</head>
+<body>
+
+    <!-- ==========================================================
+                            ENCABEZADO
+    =========================================================== -->
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../../IMG/imagen-logo.png" alt="Logo de Universidad CENFOTEC">
+                <div>
+                    <h1>Sistema de Gestión de Egresados</h1>
+                    <p>Universidad CENFOTEC</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================
+                            MENÚ
+    =========================================================== -->
+
+    <nav>
+    <ul>
+        <li><a href="../PagPublicaInformativa/PagPublicaInformativa.html">Inicio</a></li>
+        <li><a href="../PagRegistro/PagRegistro.html">Registro</a></li>
+        <li><a href="../Perfil/Perfil.html">Perfil</a></li>
+        <li><a href="../TituloForm/TituloForm.html">Títulos</a></li>
+        <li><a href="../Escuelas/Escuelas.html">Escuelas</a></li>
+    </ul>
+    </nav>
+
+    <!-- ==========================================================
+                        CONTENIDO PRINCIPAL
+    =========================================================== -->
+
+    <main class="container">
+        <section>
+            <h2>Registro de Escuela</h2>
+            <p>
+                Complete la siguiente información para registrar o actualizar
+                una escuela de la Universidad CENFOTEC.
+            </p>
+        </section>
+
+        <!-- ==========================================================
+                            FORMULARIO
+        =========================================================== -->
+
+        <form>
+            <div class="grid">
+                <div class="form-group">
+                    <label for="codigo">
+                        Código
+                    </label>
+                    <input
+                        type="text"
+                        id="codigo"
+                        name="codigo"
+                        placeholder="Ejemplo: ESC-001">
+                </div>
+                <div class="form-group">
+                    <label for="nombre">
+                        Nombre de la escuela
+                    </label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Ingrese el nombre">
+                </div>
+                <div class="form-group">
+                    <label for="director">
+                        Director
+                    </label>
+                    <input
+                        type="text"
+                        id="director"
+                        name="director"
+                        placeholder="Ingrese el nombre del director">
+                </div>
+                <div class="form-group">
+                    <label for="correo">
+                        Correo electrónico
+                    </label>
+                    <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        placeholder="correo@ucenfotec.ac.cr">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">
+                        Teléfono
+                    </label>
+                    <input
+                        type="tel"
+                        id="telefono"
+                        name="telefono"
+                        placeholder="8896-5578">
+                </div>
+                <div class="form-group">
+                    <label for="estado">
+                        Estado
+                    </label>
+                    <select
+                        id="estado"
+                        name="estado">
+                        <option>Seleccione una opción</option>
+                        <option>Activa</option>
+                        <option>Inactiva</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- ==========================================================
+                            OBSERVACIONES
+            =========================================================== -->
+
+            <div class="form-group">
+                <label for="descripcion">
+                    Descripción
+                </label>
+
+                <textarea
+                    id="descripcion"
+                    name="descripcion"
+                    placeholder="Ingrese una descripción de la escuela"></textarea>
+            </div>
+
+            <!-- ==========================================================
+                            BOTONES
+            =========================================================== -->
+
+            <div class="form-buttons">
+                <button
+                    type="submit"
+                    class="btn">
+                    Guardar
+                </button>
+                <button
+                    type="reset"
+                    class="btn btn-outline">
+                    Limpiar
+                </button>
+                <a
+                    href="../Escuelas/Escuelas.html"
+                    class="btn btn-outline">
+                    Volver
+                </a>
+            </div>
+        </form>
+    </main>
+
+    <!-- ==========================================================
+                            PIE DE PÁGINA
+    =========================================================== -->
+
+    <footer>
+        <p>Sistema de Gestión de Egresados</p>
+        <p>Universidad CENFOTEC</p>
+    </footer>
+</body>
+</html>

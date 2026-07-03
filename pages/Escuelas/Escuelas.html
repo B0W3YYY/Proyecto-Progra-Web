@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escuelas | Universidad CENFOTEC</title>
+
+    <link rel="stylesheet" href="../../CSS/styles.css">
+
+</head>
+<body>
+
+    <!-- ==========================================================
+                            ENCABEZADO
+    =========================================================== -->
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../../IMG/imagen-logo.png" alt="Logo de Universidad CENFOTEC">
+                <div>
+                    <h1>Sistema de Gestión de Egresados</h1>
+                    <p>Universidad CENFOTEC</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================
+                        MENÚ DE NAVEGACIÓN
+    =========================================================== -->
+
+    <nav>
+    <ul>
+        <li><a href="../PagPublicaInformativa/PagPublicaInformativa.html">Inicio</a></li>
+        <li><a href="../PagRegistro/PagRegistro.html">Registro</a></li>
+        <li><a href="../Perfil/Perfil.html">Perfil</a></li>
+        <li><a href="../TituloForm/TituloForm.html">Títulos</a></li>
+        <li><a href="../EscuelaForm/EscuelaForm.html">Nueva Escuela</a></li>
+    </ul>
+    </nav>
+
+    <!-- ==========================================================
+                        CONTENIDO PRINCIPAL
+    =========================================================== -->
+
+    <main class="container">
+        <section>
+            <h2>Escuelas Académicas</h2>
+            <p>
+                Consulte las escuelas registradas en el Sistema de Gestión de
+                Egresados de la Universidad CENFOTEC.
+            </p>
+        </section>
+
+        <!-- ==========================================================
+                            BOTÓN
+        =========================================================== -->
+
+        <section>
+            <a href="../EscuelaForm/EscuelaForm.html" class="btn">
+                Registrar Escuela
+            </a>
+        </section>
+
+        <!-- ==========================================================
+                            TABLA
+        =========================================================== -->
+
+        <section class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Escuela</th>
+                        <th>Director</th>
+                        <th>Correo</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>001</td>
+                        <td>Ingeniería del Software</td>
+                        <td>María López</td>
+                        <td>software@ucenfotec.ac.cr</td>
+                        <td>
+                            <span class="badge badge-activo">
+                                Activa
+                            </span>
+                        </td>
+
+                        <td>
+                            <a href="../EscuelaForm/EscuelaForm.html" class="btn">
+                                Editar
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>002</td>
+                        <td>Ciberseguridad</td>
+                        <td>Carlos Ramírez</td>
+                        <td>ciber@ucenfotec.ac.cr</td>
+                        <td>
+                            <span class="badge badge-activo">
+                                Activa
+                            </span>
+                        </td>
+
+                        <td>
+                            <a href="../EscuelaForm/EscuelaForm.html" class="btn">
+                                Editar
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>003</td>
+                        <td>Ciencia de Datos</td>
+                        <td>Ana Mora</td>
+                        <td>datos@ucenfotec.ac.cr</td>
+                        <td>
+                            <span class="badge badge-activo">
+                                Activa
+                            </span>
+                        </td>
+                        <td>
+                            <a href="../EscuelaForm/EscuelaForm.html" class="btn">
+                                Editar
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- ==========================================================
+                            PIE DE PÁGINA
+    =========================================================== -->
+
+    <footer>
+        <p>
+            Sistema de Gestión de Egresados
+        </p>
+
+        <p>
+            Universidad CENFOTEC
+        </p>
+
+    </footer>
+</body>
+</html>

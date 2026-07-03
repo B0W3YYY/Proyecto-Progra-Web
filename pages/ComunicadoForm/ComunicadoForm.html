@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Comunicado | Universidad CENFOTEC</title>
+
+    <link rel="stylesheet" href="../../CSS/styles.css">
+
+</head>
+<body>
+
+    <!-- ==========================================================
+                            ENCABEZADO
+    =========================================================== -->
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../../IMG/imagen-logo.png" alt="Logo Universidad CENFOTEC">
+                <div>
+                    <h1>Sistema de Gestión de Egresados</h1>
+                    <p>Universidad CENFOTEC</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================
+                        MENÚ DE NAVEGACIÓN
+    =========================================================== -->
+
+    <nav>
+        <ul>
+            <li><a href="../PagPublicaInformativa/PagPublicaInformativa.html">Inicio</a></li>
+            <li><a href="../PagRegistro/PagRegistro.html">Registro</a></li>
+            <li><a href="../Perfil/Perfil.html">Perfil</a></li>
+            <li><a href="../Actividades/Actividades.html">Actividades</a></li>
+            <li><a href="../Mentorias/Mentorias.html">Mentorías</a></li>
+            <li><a href="../Empleabilidad/Empleabilidad.html">Empleabilidad</a></li>
+        </ul>
+    </nav>
+
+    <!-- ==========================================================
+                        CONTENIDO PRINCIPAL
+    =========================================================== -->
+
+    <main class="container">
+        <section>
+            <h2>Registro de Comunicado</h2>
+            <p>
+                Complete la información para registrar un nuevo comunicado
+                dirigido a los egresados.
+            </p>
+        </section>
+
+        <!-- ==========================================================
+                            FORMULARIO
+        =========================================================== -->
+
+        <form>
+            <div class="grid">
+                <div class="form-group">
+                    <label for="titulo">
+                        Título
+                    </label>
+                    <input
+                        type="text"
+                        id="titulo"
+                        name="titulo"
+                        placeholder="Ingrese el título del comunicado">
+                </div>
+                <div class="form-group">
+                    <label for="categoria">
+                        Categoría
+                    </label>
+                    <select
+                        id="categoria"
+                        name="categoria">
+                        <option>Seleccione una opción</option>
+                        <option>General</option>
+                        <option>Académico</option>
+                        <option>Eventos</option>
+                        <option>Empleabilidad</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fecha">
+                        Fecha de publicación
+                    </label>
+                    <input
+                        type="date"
+                        id="fecha"
+                        name="fecha">
+                </div>
+                <div class="form-group">
+                    <label for="estado">
+                        Estado
+                    </label>
+                    <select
+                        id="estado"
+                        name="estado">
+                        <option>Seleccione una opción</option>
+                        <option>Publicado</option>
+                        <option>Borrador</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contenido">
+                    Contenido del comunicado
+                </label>
+                <textarea
+                    id="contenido"
+                    name="contenido"
+                    placeholder="Escriba aquí el comunicado"></textarea>
+            </div>
+
+            <!-- ==========================================================
+                                BOTONES
+            =========================================================== -->
+
+            <div class="form-buttons">
+                <button
+                    type="submit"
+                    class="btn">
+                    Guardar
+                </button>
+                <button
+                    type="reset"
+                    class="btn btn-outline">
+                    Limpiar
+                </button>
+                <a
+                    href="../Inicio/Inicio.html"
+                    class="btn btn-outline">
+                    Volver
+                </a>
+            </div>
+        </form>
+    </main>
+
+    <!-- ==========================================================
+                            PIE DE PÁGINA
+    =========================================================== -->
+
+    <footer>
+        <p>Sistema de Gestión de Egresados</p>
+        <p>Universidad CENFOTEC</p>
+    </footer>
+</body>
+</html>

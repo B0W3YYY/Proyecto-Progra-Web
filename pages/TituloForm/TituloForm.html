@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Título Académico | Universidad CENFOTEC</title>
+
+    <link rel="stylesheet" href="../../CSS/styles.css">
+
+</head>
+<body>
+
+    <!-- ==========================================================
+                            ENCABEZADO
+    =========================================================== -->
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../../IMG/imagen-logo.png" alt="Logo CENFOTEC">
+                <div>
+                    <h1>Sistema de Gestión de Egresados</h1>
+                    <p>Universidad CENFOTEC</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================
+                        MENÚ DE NAVEGACIÓN
+    =========================================================== -->
+
+    <nav>
+    <ul>
+        <li><a href="../PagPublicaInformativa/PagPublicaInformativa.html">Inicio</a></li>
+        <li><a href="../PagRegistro/PagRegistro.html">Registro</a></li>
+        <li><a href="../Perfil/Perfil.html">Perfil</a></li>
+        <li><a href="../EditarPerfil/EditarPerfil.html">Editar Perfil</a></li>
+        <li><a href="../Escuelas/Escuelas.html">Escuelas</a></li>
+    </ul>
+    </nav>
+
+    <!-- ==========================================================
+                        CONTENIDO PRINCIPAL
+    =========================================================== -->
+
+    <main class="container">
+        <section>
+            <h2>Registro de Título Académico</h2>
+
+            <p>
+                Complete la información correspondiente al título académico
+                obtenido por el egresado.
+            </p>
+
+        </section>
+
+        <!-- ==========================================================
+                        FORMULARIO
+        =========================================================== -->
+
+        <form>
+            <section>
+                <h3>Información del Título</h3>
+                <div class="grid">
+                    <div class="form-group">
+                        <label for="tipoPrograma">
+                            Tipo de programa
+
+                        </label>
+                        <select id="tipoPrograma" name="tipoPrograma">
+                            <option value="">Seleccione una opción</option>
+                            <option>Técnico</option>
+                            <option>Diplomado</option>
+                            <option>Bachillerato</option>
+                            <option>Licenciatura</option>
+                            <option>Maestría</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="escuela">
+                            Escuela
+                        </label>
+                        <input
+                            type="text"
+                            id="escuela"
+                            name="escuela"
+                            placeholder="Ingrese la escuela">
+                    </div>
+                    <div class="form-group">
+                        <label for="carrera">
+                            Carrera
+                        </label>
+                        <input
+                            type="text"
+                            id="carrera"
+                            name="carrera"
+                            placeholder="Ingrese la carrera">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="anioGraduacion">
+                            Año de graduación
+                        </label>
+                        <input
+                            type="number"
+                            id="anioGraduacion"
+                            name="anioGraduacion"
+                            placeholder="2025">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="estado">
+                            Estado del título
+                        </label>
+                        <select id="estado" name="estado">
+                            <option value="">Seleccione una opción</option>
+                            <option>En proceso</option>
+                            <option>Finalizado</option>
+                            <option>Graduado</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fechaTitulo">
+                            Fecha de obtención del título
+
+                        </label>
+                        <input
+                            type="date"
+                            id="fechaTitulo"
+                            name="fechaTitulo">
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===========================================
+                    OBSERVACIONES
+            ============================================ -->
+
+            <section>
+                <h3>Observaciones</h3>
+                <div class="form-group">
+                    <label for="observaciones">
+                        Comentarios adicionales
+                    </label>
+                    <textarea
+                        id="observaciones"
+                        name="observaciones"
+                        placeholder="Ingrese cualquier observación relacionada con el título académico"></textarea>
+                </div>
+            </section>
+
+            <!-- ===========================================
+                    BOTONES
+            ============================================ -->
+
+            <div class="form-buttons">
+                <button
+                    type="submit"
+                    class="btn">
+                    Guardar
+                </button>
+
+                <button
+                    type="reset"
+                    class="btn btn-outline">
+                    Limpiar
+                </button>
+
+                <a
+                    href="../Perfil/Perfil.html"
+                    class="btn btn-outline">
+                    Volver al perfil
+                </a>
+            </div>
+        </form>
+    </main>
+
+    <!-- ==========================================================
+                            PIE DE PÁGINA
+    =========================================================== -->
+
+    <footer>
+        <p>Sistema de Gestión de Egresados</p>
+        <p>Universidad CENFOTEC</p>
+    </footer>
+</body>
+</html>

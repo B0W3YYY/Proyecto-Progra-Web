@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Egresado | Universidad CENFOTEC</title>
+
+    <link rel="stylesheet" href="../../CSS/styles.css"> 
+
+</head>
+<body>
+
+    <!-- ==========================================================
+                            ENCABEZADO
+    =========================================================== -->
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../../IMG/imagen-logo.png" alt="Logo de Universidad CENFOTEC"> 
+                <div>
+                    <h1>Sistema de Gestión de Egresados</h1>
+                    <p>Universidad CENFOTEC</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================
+                        MENÚ DE NAVEGACIÓN
+    =========================================================== -->
+
+    <nav>
+    <ul>
+        <li><a href="../PagPublicaInformativa/PagPublicaInformativa.html">Inicio</a></li>
+        <li><a href="../Perfil/Perfil.html">Perfil</a></li>
+        <li><a href="../EditarPerfil/EditarPerfil.html">Editar Perfil</a></li>
+        <li><a href="../TituloForm/TituloForm.html">Títulos</a></li>
+        <li><a href="../Escuelas/Escuelas.html">Escuelas</a></li>
+    </ul>
+    </nav>
+
+    <!-- ==========================================================
+                        CONTENIDO PRINCIPAL
+    =========================================================== -->
+
+    <main class="container">
+        <section>
+            <h2>Registro de Egresado</h2>
+            <p>
+                Complete el siguiente formulario con la información del
+                egresado para registrarlo en el Sistema de Gestión de
+                Egresados de la Universidad CENFOTEC.
+            </p>
+        </section>
+
+        <!-- ==========================================================
+                        FORMULARIO
+        =========================================================== -->
+
+        <form>
+
+            <!-- ===========================================
+                    INFORMACIÓN PERSONAL
+            ============================================ -->
+
+            <section>
+                <h3>Información Personal</h3>
+                <div class="grid">
+                    <div class="form-group">
+                        <label for="identificacion">
+                            Identificación
+                        </label>
+                        <input
+                            type="text"
+                            id="identificacion"
+                            name="identificacion"
+                            placeholder="Ingrese la identificación">
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">
+                            Nombre
+                        </label>
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            placeholder="Ingrese el nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido1">
+                            Primer apellido
+                        </label>
+                        <input
+                            type="text"
+                            id="apellido1"
+                            name="apellido1"
+                            placeholder="Ingrese el primer apellido">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido2">
+                            Segundo apellido
+                        </label>
+                        <input
+                            type="text"
+                            id="apellido2"
+                            name="apellido2"
+                            placeholder="Ingrese el segundo apellido">
+                    </div>
+                    <div class="form-group">
+                        <label for="fechaNacimiento">
+                            Fecha de nacimiento
+                        </label>
+                        <input
+                            type="date"
+                            id="fechaNacimiento"
+                            name="fechaNacimiento">
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">
+                            Correo electrónico
+                        </label>
+                        <input
+                            type="email"
+                            id="correo"
+                            name="correo"
+                            placeholder="ejemplo@correo.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">
+                            Teléfono
+                        </label>
+                        <input
+                            type="tel"
+                            id="telefono"
+                            name="telefono"
+                            placeholder="8888-8888">
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===========================================
+                    INFORMACIÓN ACADÉMICA
+            ============================================ -->
+
+            <section>
+                <h3>Información Académica</h3>
+                <div class="grid">
+                    <div class="form-group">
+                        <label for="escuela">
+                            Escuela
+                        </label>
+                        <select id="escuela" name="escuela">
+                            <option>Seleccione una escuela</option>
+                            <option>Ingeniería del Software</option>
+                            <option>Ciberseguridad</option>
+                            <option>Ciencia de Datos</option>
+                            <option>Administración</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="carrera">
+                            Carrera
+                        </label>
+                        <input
+                            type="text"
+                            id="carrera"
+                            name="carrera">
+                    </div>
+                    <div class="form-group">
+                        <label for="titulo">
+                            Título obtenido
+                        </label>
+                        <input
+                            type="text"
+                            id="titulo"
+                            name="titulo">
+                    </div>
+                    <div class="form-group">
+                        <label for="graduacion">
+                            Año de graduación
+                        </label>
+                        <input
+                            type="number"
+                            id="graduacion"
+                            name="graduacion">
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===========================================
+                    INFORMACIÓN LABORAL
+            ============================================ -->
+
+            <section>
+                <h3>Información Laboral</h3>
+                <div class="grid">
+                    <div class="form-group">
+                        <label for="empresa">
+                            Empresa
+                        </label>
+                        <input
+                            type="text"
+                            id="empresa"
+                            name="empresa"
+                            placeholder="Ingrese el nombre de la empresa">
+                    </div>
+                    <div class="form-group">
+                        <label for="puesto">
+                            Puesto
+                        </label>
+                        <input
+                            type="text"
+                            id="puesto"
+                            name="puesto"
+                            placeholder="Ingrese el puesto">
+                    </div>
+                    <div class="form-group">
+                        <label for="provincia">
+                            Provincia
+                        </label>
+                        <select id="provincia" name="provincia">
+                            <option>Seleccione una provincia</option>
+                            <option>San José</option>
+                            <option>Alajuela</option>
+                            <option>Cartago</option>
+                            <option>Heredia</option>
+                            <option>Guanacaste</option>
+                            <option>Puntarenas</option>
+                            <option>Limón</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="canton">
+                            Cantón
+                        </label>
+                        <input
+                            type="text"
+                            id="canton"
+                            name="canton"
+                            placeholder="Ingrese el cantón">
+                    </div>
+                    <div class="form-group">
+                        <label for="salario">
+                            Salario aproximado
+                        </label>
+                        <input
+                            type="number"
+                            id="salario"
+                            name="salario"
+                            placeholder="₡0">
+                    </div>
+                    <div class="form-group">
+                        <label for="modalidad">
+                            Modalidad de trabajo
+                        </label>
+                        <select id="modalidad" name="modalidad">
+                            <option>Seleccione una opción</option>
+                            <option>Presencial</option>
+                            <option>Híbrida</option>
+                            <option>Remota</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===========================================
+                    OBSERVACIONES
+            ============================================ -->
+
+            <section>
+                <h3>Observaciones</h3>
+                <div class="form-group">
+                    <label for="observaciones">
+                        Comentarios adicionales
+                    </label>
+                    <textarea
+                        id="observaciones"
+                        name="observaciones"
+                        placeholder="Ingrese cualquier observación relevante"></textarea>
+                </div>
+            </section>
+
+            <!-- ===========================================
+                    BOTONES
+            ============================================ -->
+
+            <div class="form-buttons">
+                <button
+                    type="submit"
+                    class="btn">
+                    Registrar
+                </button>
+                <button
+                    type="reset"
+                    class="btn btn-outline">
+                    Limpiar
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <!-- ==========================================================
+                            PIE DE PÁGINA
+    =========================================================== -->
+
+    <footer>
+        <p>
+            Sistema de Gestión de Egresados
+        </p>
+
+        <p>
+            Universidad CENFOTEC
+        </p>
+    </footer>
+</body>
+</html>

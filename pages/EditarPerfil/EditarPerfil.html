@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil | Universidad CENFOTEC</title>
+
+    <link rel="stylesheet" href="../../CSS/styles.css">
+
+</head>
+<body>
+
+    <!-- ==========================================================
+                            ENCABEZADO
+    =========================================================== -->
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../../IMG/imagen-logo.png" alt="Logo de Universidad CENFOTEC">
+                <div>
+                    <h1>Sistema de Gestión de Egresados</h1>
+                    <p>Universidad CENFOTEC</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================
+                        MENÚ DE NAVEGACIÓN
+    =========================================================== -->
+
+    <nav>
+    <ul>
+        <li><a href="../PagPublicaInformativa/PagPublicaInformativa.html">Inicio</a></li>
+        <li><a href="../PagRegistro/PagRegistro.html">Registro</a></li>
+        <li><a href="../Perfil/Perfil.html">Perfil</a></li>
+        <li><a href="../TituloForm/TituloForm.html">Títulos</a></li>
+        <li><a href="../Escuelas/Escuelas.html">Escuelas</a></li>
+    </ul>
+    </nav>
+
+    <!-- ==========================================================
+                        CONTENIDO PRINCIPAL
+    =========================================================== -->
+
+    <main class="container">
+        <section>
+            <h2>Editar Perfil</h2>
+            <p>
+                Modifique la información personal, académica y laboral del
+                egresado. Una vez realizados los cambios, presione el botón
+                <strong>Guardar Cambios</strong>.
+            </p>
+        </section>
+
+        <!-- ==========================================================
+                        FORMULARIO
+        =========================================================== -->
+
+        <form>
+
+            <!-- ===========================================
+                    INFORMACIÓN PERSONAL
+            ============================================ -->
+            <section>
+                <h3>Información Personal</h3>
+                <div class="grid">
+                    <div class="form-group">
+                        <label for="identificacion">
+                            Identificación
+                        </label>
+                        <input
+                            type="text"
+                            id="identificacion"
+                            name="identificacion"
+                            value="1-1111-1111">
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">
+                            Nombre
+                        </label>
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            value="María">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido1">
+                            Primer apellido
+                        </label>
+                        <input
+                            type="text"
+                            id="apellido1"
+                            name="apellido1"
+                            value="Rodríguez">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido2">
+                            Segundo apellido
+                        </label>
+                        <input
+                            type="text"
+                            id="apellido2"
+                            name="apellido2"
+                            value="Quesada">
+                    </div>
+                    <div class="form-group">
+                        <label for="fechaNacimiento">
+                            Fecha de nacimiento
+                        </label>
+                        <input
+                            type="date"
+                            id="fechaNacimiento"
+                            name="fechaNacimiento">
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">
+                            Correo electrónico
+                        </label>
+                        <input
+                            type="email"
+                            id="correo"
+                            name="correo"
+                            value="maria@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">
+                            Teléfono
+                        </label>
+                        <input
+                            type="tel"
+                            id="telefono"
+                            name="telefono"
+                            value="8896-5578">
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===========================================
+                    INFORMACIÓN ACADÉMICA
+            ============================================ -->
+
+            <section>
+                <h3>Información Académica</h3>
+                <div class="grid">
+                    <div class="form-group">
+                        <label for="escuela">
+                            Escuela
+                        </label>
+                        <select id="escuela" name="escuela">
+                            <option>Ingeniería del Software</option>
+                            <option>Ciberseguridad</option>
+                            <option>Ciencia de Datos</option>
+                            <option>Administración</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="carrera">
+                            Carrera
+                        </label>
+                        <input
+                            type="text"
+                            id="carrera"
+                            name="carrera"
+                            value="Ingeniería del Software">
+                    </div>
+                    <div class="form-group">
+                        <label for="titulo">
+                            Título obtenido
+                        </label>
+                        <input
+                            type="text"
+                            id="titulo"
+                            name="titulo"
+                            value="Bachiller Universitario">
+                    </div>
+                    <div class="form-group">
+                        <label for="graduacion">
+                            Año de graduación
+                        </label>
+                        <input
+                            type="number"
+                            id="graduacion"
+                            name="graduacion"
+                            value="2025">
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===========================================
+                    INFORMACIÓN LABORAL
+            ============================================ -->
+
+            <section>
+                <h3>Información Laboral</h3>
+                <div class="grid">
+                    <div class="form-group">
+                        <label for="empresa">
+                            Empresa
+                        </label>
+                        <input
+                            type="text"
+                            id="empresa"
+                            name="empresa"
+                            value="JASEC">
+                    </div>
+                    <div class="form-group">
+                        <label for="puesto">
+                            Puesto
+                        </label>
+                        <input
+                            type="text"
+                            id="puesto"
+                            name="puesto"
+                            value="Desarrolladora Web">
+                    </div>
+                    <div class="form-group">
+                        <label for="provincia">
+                            Provincia
+                        </label>
+                        <select
+                            id="provincia"
+                            name="provincia">
+                            <option>San José</option>
+                            <option>Alajuela</option>
+                            <option>Cartago</option>
+                            <option>Heredia</option>
+                            <option>Guanacaste</option>
+                            <option>Puntarenas</option>
+                            <option>Limón</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="canton">
+                            Cantón
+                        </label>
+                        <input
+                            type="text"
+                            id="canton"
+                            name="canton"
+                            value="Montes de Oca">
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===========================================
+                    OBSERVACIONES
+            ============================================ -->
+
+            <section>
+                <h3>Observaciones</h3>
+                <div class="form-group">
+                    <label for="observaciones">
+                        Comentarios
+                    </label>
+                    <textarea
+                        id="observaciones"
+                        name="observaciones"
+                        placeholder="Escriba aquí cualquier observación sobre el perfil del egresado."></textarea>
+                </div>
+            </section>
+
+            <!-- ===========================================
+                    BOTONES
+            ============================================ -->
+
+            <div class="form-buttons">
+                <button
+                    type="submit"
+                    class="btn">
+                    Guardar cambios
+                </button>
+                <button
+                    type="reset"
+                    class="btn btn-outline">
+                    Restablecer
+                </button>
+                <a
+                    href="../Perfil/Perfil.html"
+                    class="btn btn-outline">
+                    Volver al perfil
+                </a>
+            </div>
+        </form>
+    </main>
+
+    <!-- ==========================================================
+                            PIE DE PÁGINA
+    =========================================================== -->
+
+    <footer>
+        <p>Sistema de Gestión de Egresados</p>
+
+        <p>Universidad CENFOTEC</p>
+    </footer>
+</body>
+</html>
